@@ -1,0 +1,94 @@
+
+
+
+
+
+.size(@w, @h) { width: @w; height: @h; }
+.w (@w) { width: @w; _width: @w; }
+.h (@h) { height: @h; _height: @h; }
+
+.min-w(@min-w) { min-width: @min-w; _width: @min-w; }
+.min-h(@min-h) { min-height: @min-h; _height: @min-h; }
+
+
+// 字体颜色
+.color(@color) { color: @color;}
+
+// 背景颜色
+.bg-color(@color){ background-color: @color; }
+
+// 字体大小
+.fz(@fz: 12px) { font-size: @fz; }
+
+//  内容对齐
+.text-align (@align: left) { text-align: @align; }
+
+
+// 浮动, 兼容 IE6
+.float(@float: left) { float: @float; *display: inline; _display:inline; }
+
+// 清除浮动
+.clearfix() {
+    *zoom: 1;
+    &:after { display: block; clear: both; content: ''; visibility: hidden; height: 0; }
+}
+.clearfix(table) {
+    *zoom: 1;
+    &:before, &:after { content: " "; display: table; clear: both; }
+}
+
+.disabled() { cursor: not-allowed; }
+
+
+.flex() {  display: flex; }
+.flex-col() { .flex(); flex-direction: column; }
+.flex-col-center() { .flex(); align-items: center;}
+.flex-row-center() {.flex(); justify-content: center;}
+
+.center(flex) { .flex();justify-content: center;align-items: center; }
+.center(translate) { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+
+// 禁用元素事件
+// 1. 阻止任何点击动作的执行
+// 2. 使链接显示为默认光标(cursor:default)
+// 3. 阻止触发hover和active状态
+// 4. 阻止JavaScript点击事件的触发
+.pointer-events() { pointer-events: none; }
+
+// 透明度, 兼容 IE8
+.opacity(@opacity: 20) { opacity: @opacity / 100; filter: alpha(opacity=@opacity); }
+
+
+// 固定定位, 兼容IE6
+.fixed() { position: fixed; _position: absolute; *zoom: 1; }
+.fixed-100(fixed) { .fixed();  top: 0; left: 0; right: 0; bottom: 0; }
+.fixed-100(absolute) { position: absolute;  top: 0; left: 0; right: 0; bottom: 0; }
+
+// 遮罩层, 全屏遮罩、区域遮罩
+.mask(fixed) { .fixed-100(fixed); background-color: #000; .opacity(50); }
+.mask(absolute) {  .fixed-100(absolute); background-color: #000; .opacity(50); }
+
+.ellipsis () { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ellipsis (@line) {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient: vertical
+}
+
+.grid (@row, @col,  @row-gap: 10px, @col-gap: 10px) {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(@col, 1fr);
+    grid-template-rows: repeat(@row, 1fr);
+    grid-column-gap: @col-gap;
+    grid-row-gap: @row-gap;
+}
+
+
+
+

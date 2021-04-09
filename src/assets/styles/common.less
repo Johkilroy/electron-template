@@ -1,0 +1,98 @@
+@import "./func.less";
+
+// @--bg-path: '@{--static-file-domain}/DataCenter';
+
+// flex 布局
+.flex {  .flex();  }
+.flex-col { .flex-col(); }
+.flex-center { .center(flex); }
+.flex-col-center { .flex-col-center(); }
+.flex-row-center { .flex-row-center() }
+
+.flex-1 { flex: 1; }
+.flex-wrap { .flex; flex-wrap: wrap; }
+.align-items-center { align-items: center; }
+.justify-content-center { justify-content: center; }
+.column-space-between { justify-content: space-between;}
+.flex-control { .flex-1; }
+
+.flex-label { flex-shrink: 0; }
+
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+.tx-left { .text-align(left); }
+.tx-center { .text-align(center); }
+.tx-right { .text-align(right); }
+
+.fl { .float(left); }
+.fr { .float(right); }
+
+.ellipsis { .ellipsis(); }
+.bold { font-weight: bold; }
+
+.iconfont { font-size: inherit; }
+.icon--left { margin-right: .1rem; }
+.icon--right { margin-left: .1rem; }
+
+.container {
+    .h-100;
+    .flex-col;
+    padding: 0.15rem;
+    // background-image:  url('@{--bg-path}/bg/bg.png');
+    // background-size: cover;
+    // background-position: center center;
+    box-sizing: border-box;
+    .content {
+        overflow: hidden;
+        .flex-1;
+    }
+}
+
+
+/*滚动条的宽度*/
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/*外层轨道。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果*/
+
+::-webkit-scrollbar-track {
+    width: 4px;
+    background-color: #0d1b20;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
+/*滚动条的设置*/
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(96, 109, 113, 0.5);
+    background-clip: padding-box;
+    min-height: 28px;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+/*滚动条移上去的背景*/
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #606d71;
+}
+
+.scroll-bgW {
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(144, 147, 153, 0.3);
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(144, 147, 153, 0.5);
+    }
+}
+
